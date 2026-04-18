@@ -1,0 +1,45 @@
+public class MultiTasking {
+    public static void main(String[] args) {
+        
+        // Потік для цифри 1 (кожна 1 секунда)
+        Thread thread1 = new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(1000); // Затримка 1000 мс
+                    System.out.println("1");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        // Потік для цифри 2 (кожні 2 секунди)
+        Thread thread2 = new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(2000); // Затримка 2000 мс
+                    System.out.println("2");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        // Потік для цифри 3 (кожні 3 секунди)
+        Thread thread3 = new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(3000); // Затримка 3000 мс
+                    System.out.println("3");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        // Запуск усіх потоків
+        thread1.start();
+        thread2.start();
+        thread3.start();
+    }
+}
